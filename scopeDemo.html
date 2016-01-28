@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ScopeDemo">
+<head>
+    <script src="../../angular.min.js"></script>
+    <script src="scopeDemo.js"></script>
+</head>
+<body ng-controller="ScopeDemoController">
+    Controller(parent) scope
+    <h2>{{title}}</h2>
+    <div directive-scope-value-is-false style="background-color: #0077b3">
+        <h3>Directive Scope --- scope= false</h3>
+        <p>Title-------> {{title}}</p>
+    </div>
+    <div directive-scope-value-is-true style="background-color:#bbbbbb">
+        <h3>Directive Scope --- scope= true</h3>
+        <p>Title------> {{title}}</p>
+    </div>
+    <my-component read-only-title="{{title}}" new-title="title" style="background-color:#e3e3e3">
+    </my-component>
+<script type="text/ng-template" id="component">
+    <h3>Directive Scope ---- scope= Object</h3>
+    <p>Read Only varible(title):------>  {{oneWayBindedTitle}}</p>
+    <p>Two way Binded variable(title): ------> {{twoWayBindedTitle}}</p>
+</script>
+</body>
+</html>
